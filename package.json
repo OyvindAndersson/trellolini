@@ -1,0 +1,33 @@
+{
+  "name": "trellolini",
+  "version": "0.0.1",
+  "description": "Trello javascript API wrapper",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "axios": "^0.18",
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0",
+    "laravel-mix": "^2.1.14",
+    "query-string": "^6.1.0"
+  },
+  "keywords": [
+    "trello",
+    "api",
+    "es6"
+  ],
+  "author": "Øyvind Andersson",
+  "license": "MIT",
+  "dependencies": {
+    "cross-env": "^5.2.0"
+  }
+}
