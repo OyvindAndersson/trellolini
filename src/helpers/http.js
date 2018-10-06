@@ -1,4 +1,6 @@
-const trelloAxios = require('axios').create()
+import axios from 'axios'
+
+const trelloAxios = axios.create()
 const queryString = require('query-string');
 
 
@@ -23,6 +25,14 @@ const trelloCSRFRequestInterceptor = trelloAxios.interceptors.request.use((confi
         return Promise.reject(error)
     }
 )
+
+/**
+ * 
+ * @param {*} params 
+ */
+export const paramsSerializer = (params) => {
+    return queryString.stringify(params, {arrayFormat: 'bracket'})
+}
 
 /**
  * The required config for makeRequest
@@ -56,12 +66,12 @@ export function makeRequest( method = 'get', uri = '', config = defaultConfig, d
         // END DEBUG
     }
     */
-    
+    /*
     console.debug(`----------------------`)
     console.debug(data)
     console.debug(queryString.stringify(data))
     console.debug(`----------------------`)
-
+*/
     if(method.toLowerCase() == 'get'){
         queryObj = {...data}
     }
@@ -72,11 +82,9 @@ export function makeRequest( method = 'get', uri = '', config = defaultConfig, d
         data: queryString.stringify(data),
         url     : `${config.baseUrl}/${path}/`,
         params  : Object.assign(queryObj, {token: config.token, key: config.key }),
-
-        paramsSerializer: function(params) {
-            return queryString.stringify(params, {arrayFormat: 'bracket'})
-        }
+        paramsSerializer
     }
+
 
     return trelloAxios.request(request)
 }

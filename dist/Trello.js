@@ -533,34 +533,7 @@ var defaultConfig = {
 }
 
 /**
- * 
- * @todo decide on API design!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * @todo Remove/fix testing funcs in BaseModel class
- * 
- * 
- * // Special default board object (preset ID)
- * Trello.boards.default.customFields()
- * Trello.boards.default.labels(fields, limit)
- * 
- * // General
- * Trello.boards.byId(boardId, fields)
- * Trello.boards.fromCard(cardId, fields)
- * Trello.boards.fromList(listId, fields)
- * Trello.boards.customFields(boardId)
- * Trello.boards.labels(boardId, fields, limit)
- * 
- * Trello.cards.byId(cardId, fields)
- * Trello.cards.fromBoard(boardId, fields)
- * Trello.cards.fromList(listId, fields)
- * 
- * Trello.lists.byId(listId, fields)
- * Trello.lists.fromBoard(boardId, fields)
- * Trello.lists.fromCard(cardId, fields)
- * 
- * 
- * 
- * Trello.customBoard.cards.withFields([])
- * 
+ * Trello js
  */
 
 var Trello = function () {

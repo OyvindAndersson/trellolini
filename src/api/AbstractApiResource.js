@@ -24,22 +24,21 @@ export default class AbstractApiResource {
         return this._resourceId && this._resourceId.length > 0
     }
 
+    get resourceId() {
+        return this._resourceId
+    }
+
+    get params() {
+        return this._params
+    }
+
     set id(id) {
         this._resourceId = id
     }
 
     /** --------------------------------
-     * SELECTORS
+     * MODIFIERS - returns 'this' for chainability
      ------------------------------------*/
-
-    /**
-     * Retrieves a resource with a specific ID
-     * @param {String} id ID of the resource to get
-     * @returns {Promise}
-     */
-    byId(id){
-        return this._client.get(`${this._uri}/${id}`)
-    }
 
     /**
      * Sets a list of fields to include in the query for a resource.
@@ -52,14 +51,27 @@ export default class AbstractApiResource {
     }
 
     /** --------------------------------
-     * REST
+     * REST - does not return 'this' for chaining. These are used to 'finish' a request build.
      ------------------------------------*/
+
+     /**
+     * Retrieves a resource with a specific ID
+     * @param {String} id ID of the resource to get
+     * @returns {Promise}
+     */
+    byId(id){
+        if(!id){
+            throw new TypeError(`id argument cannot be undefined/null`)
+        }
+
+        return this._client.get(`${this._uri}/${id}`, this._params)
+    }
 
     /**
      * Standard get request on the current URI and params
      * @param {Object} params Query parameters
      */
-    get(params){
+    get(params = {}){
         let id = this._resourceId
         this._params = {...this._params, ...params}
 
