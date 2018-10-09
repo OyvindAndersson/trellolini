@@ -40,7 +40,7 @@ function validateConfig(config){
 }
 
 /**
- * Trello js
+ * Trello js client
  */
 export default class Trello {
 
