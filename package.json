@@ -21,7 +21,7 @@
     "query-string": "^6.1.0"
   },
   "jest": {
-    "coverageDirectory": "./src/",
+    "coverageDirectory": "./coverage",
     "collectCoverage": true
   },
   "keywords": [
