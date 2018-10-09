@@ -20,6 +20,10 @@
     "laravel-mix": "^2.1.14",
     "query-string": "^6.1.0"
   },
+  "jest": {
+    "coverageDirectory": "./src/",
+    "collectCoverage": true
+  },
   "keywords": [
     "trello",
     "api",
