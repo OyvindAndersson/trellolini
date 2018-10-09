@@ -26,6 +26,12 @@
     "coverageDirectory": "./coverage",
     "collectCoverage": true
   },
+  "jshintConfig": {
+    "esversion": 6,
+    "asi": true,
+    "lastsemic": true
+    
+  },
   "keywords": [
     "trello",
     "api",
